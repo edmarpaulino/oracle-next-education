@@ -1,0 +1,23 @@
+<meta charset="utf-8">
+
+<h3>Alcohol or Gasoline</h3>
+<script>
+	var tank = 40;
+
+	var gasMaxDistance = 480;
+	var gasConsumption = (gasMaxDistance / tank);
+
+	document.write("The gasoline consumption is " + gasConsumption);
+	document.write("<br>");
+
+	var alcMaxDistance = 300;
+	var alcConsumption = (alcMaxDistance / tank);
+
+	document.write("The alcohol consumption is " + alcConsumption);
+	document.write("<br>");
+
+	if (gasConsumption > alcConsumption)
+		document.write("Gasoline is better than alcohol");
+	else
+		document.write("Alcohol is better than gasoline");
+</script>

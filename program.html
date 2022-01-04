@@ -1,0 +1,35 @@
+<meta charset="utf-8">
+
+<script>
+
+	function breakRow(numOfBreaks) {
+		if (numOfBreaks > 0) {
+			for (let i = 0; i < numOfBreaks; i++) {
+				document.write("<br>");
+			}
+		}
+		else
+			document.write("<br>");
+	}
+
+	function printText(text) {
+		document.write(text);
+	}
+
+	function printTextWithBreakRow(text, numOfBreaks) {
+		printText(text);
+		breakRow(numOfBreaks);
+	}
+
+	var curYear = 2022;
+	var myAge = (curYear - 1996);
+	var flavioAge = (curYear - 1977);
+	var barneyAge = (curYear - 1976);
+	var averageAge = (myAge + flavioAge + barneyAge) / 3;
+	
+	printTextWithBreakRow("I'm " + myAge + " years old");
+	printTextWithBreakRow("Flavio is " + flavioAge + " years old");
+	printTextWithBreakRow("Barney is " + barneyAge + " years old", 4);
+	printText("The average age is " + Math.round(averageAge));
+	
+</script>
