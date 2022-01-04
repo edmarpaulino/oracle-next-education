@@ -1,0 +1,29 @@
+<meta charset="utf-8">
+
+<script>
+	
+	function breakRow(numOfBreaks) {
+		if (numOfBreaks > 0)
+		{
+			for (let i = 0; i < numOfBreaks; i++) {
+				if (i % 2)
+					document.write("<hr>");
+				document.write("<br>");
+			}
+		}
+		else
+			document.write("<br>");
+	}
+
+	function printText(text) {
+		document.write("<big>" + text + "</big>");
+		breakRow(2);
+	}
+
+	var year = 2022;
+
+	printText("I was born in " + (year - 26));
+	printText("Adriano was born in " + (year - 55));
+	printText("Paula was born in " + (year - 27));
+
+</script>

@@ -1,0 +1,24 @@
+<meta charset="utf-8">
+
+<script>
+	
+	function getYearsRange(startYear, endYear) {
+		return (endYear - startYear);
+	}
+
+	function getNumberOfGen(yearsRange) {
+		return (Math.round(yearsRange / 28));
+	}
+
+	function printNumberOfGen(numberOfGen) {
+		document.write("The number of generations is " + numberOfGen + "<br>");
+	}
+
+	var startYear = 1500;
+	var endYear = 2022;
+	var yearsRange = getYearsRange(startYear, endYear);
+	var numberOfGen = getNumberOfGen(yearsRange);
+
+	printNumberOfGen(numberOfGen);
+
+</script>

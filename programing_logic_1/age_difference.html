@@ -1,0 +1,21 @@
+<meta charset="utf-8">
+
+<script>
+	
+	function printAgeDifference(ageDifference) {
+		document.write("Our age difference is " + ageDifference + "<br>");
+	}
+
+	function getAgeDifference(firstAge, secondAge) {
+		var ageDifference = firstAge - secondAge;
+
+		if (ageDifference < 0)
+			ageDifference *= -1;
+		return (ageDifference);
+	}
+
+	var myAge = 25;
+	var brotherAge = 23;
+	printAgeDifference(getAgeDifference(myAge, brotherAge));
+
+</script>
