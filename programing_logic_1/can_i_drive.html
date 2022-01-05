@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+
+<script>
+
+	function breakRow() {
+		printText("<br>");
+	}
+
+	function printText(text) {
+		document.write(text);
+	}
+
+	function printTextWithBreakRow(text) {
+		printText(text);
+		breakRow();
+	}
+
+	var age = parseInt(prompt("How old are you?"));
+	var hasDriveLicense = prompt("Have you drive license? (y or n)");
+
+	if (age >= 18 && hasDriveLicense == 'y') {
+		printTextWithBreakRow("You can drive.");
+	} else {
+		printTextWithBreakRow("You still can't drive.");
+	}
+	
+</script>

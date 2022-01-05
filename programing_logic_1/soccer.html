@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+
+<script>
+
+	function breakRow(){
+		document.write("<br>");
+	}
+
+	function printText(text) {
+		document.write(text);
+	}
+
+	function printTextWithBreakRow(text) {
+		printText(text);
+		breakRow();
+	}
+
+	var victory = parseInt(prompt("Enter with the number of victories: "));
+	var draw = parseInt(prompt("Enter with the number of draws: "));
+	var curYearScore = (victory * 3) + draw;
+	var lastYearScore = 28;
+
+	printTextWithBreakRow("Your team's score is " + curYearScore);
+	if (curYearScore < lastYearScore)
+		printTextWithBreakRow("Your team is worse off than last year.");
+	else if (curYearScore == lastYearScore)
+		printTextWithBreakRow("Your team is the same as last year.");
+	else
+		printTextWithBreakRow("Your team is better than last year.");
+</script>

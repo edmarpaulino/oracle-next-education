@@ -18,7 +18,16 @@
 	var name = prompt("What is your name: ");
 	var weight = prompt(name + ", enter with your weight: ");
 	var height = prompt(name + ", enter with your height: ");
+	var bmi = calcBmi(weight, height);
 
-	printTextWithBreakRow(name + ", your BMI is " + calcBmi(weight, height));
+	printTextWithBreakRow(name + ", your BMI is " + bmi);
+
+	if (bmi < 18.5) {
+		printTextWithBreakRow("Your weight is bellow recommended");
+	} else if (bmi > 35) {
+		printTextWithBreakRow("Your weight is above recommended");
+	} else {
+		printTextWithBreakRow("You weight is within recommended range");
+	}
 
 </script>
