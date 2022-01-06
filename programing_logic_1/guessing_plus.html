@@ -1,0 +1,27 @@
+<meta charset="uft-8">
+
+<input>
+
+<button>verify number</button>
+
+<script>
+
+	function verify() {
+		if (input.value == randomNum) {
+			alert("Congratulations! You got the right number.");
+		} else {
+			alert("You didn't get it right, the number was the " + randomNum + ".")
+		}
+		randomNum = Math.round(Math.random() * 10);
+		input.value = "";
+		input.focus();
+	}
+
+	var randomNum = Math.round(Math.random() * 10);
+	var input = document.querySelector("input");
+	var button = document.querySelector("button");
+
+	input.focus();
+	button.onclick = verify;
+
+</script>
