@@ -6,21 +6,61 @@
 
 <script>
 
-	function verify() {
-		if (input.value == randomNum) {
-			alert("Congratulations! You got the right number.");
-		} else {
-			alert("You didn't get it right, the number was the " + randomNum + ".")
+	function checkDuplicate(number) {
+		for(var i = 0; i < randomNumbers.length; i++) {
+			if(randomNumbers[i] == number)
+				return true;
 		}
-		randomNum = Math.round(Math.random() * 10);
+		return false;
+	}
+
+	function clearArray() {
+		var length = randomNumbers.length;
+		
+		for(var i = 0; i < length; i++) {
+			randomNumbers.pop();
+		}
+	}
+
+	function getRandomNumbers(quantity) {
+		var i = 0;
+		var	number = 0;
+
+		while(i < quantity) {
+			number = Math.round(Math.random() * 10);
+			if(number != 0 && !checkDuplicate(number)) {
+				randomNumbers.push(number);
+				i++;
+			}
+		}
+		return randomNumbers;
+	}
+
+	function verify() {
+		var result = false;
+
+		for(var pos = 0; pos < randomNumbers.length; pos++) {
+			if (input.value == randomNumbers[pos]) {
+				result = true;
+			}
+		}
+		if (result) {
+			alert("Congratulations! You got one of the right numbers.");
+		} else {
+			alert("You didn't get it right, try again.")
+		}
+		clearArray();
+		randomNumbers = getRandomNumbers(quantity);
 		input.value = "";
 		input.focus();
 	}
 
-	var randomNum = Math.round(Math.random() * 10);
+	var randomNumbers = [];
+	var quantity = 5;
 	var input = document.querySelector("input");
 	var button = document.querySelector("button");
 
+	randomNumbers = getRandomNumbers(quantity);
 	input.focus();
 	button.onclick = verify;
 

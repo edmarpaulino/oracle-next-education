@@ -1,0 +1,34 @@
+<meta charset="UTF-8">
+
+<h1>Yan's Recipes</h1>
+
+<script>
+
+	function checkDuplicate(ingredient) {
+		for(var i = 0; i < ingredients.length; i++) {
+			if (ingredient == ingredients[i]) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	var ingredients = [];
+	var quantity = parseInt(prompt("How many ingredients will you add"));
+	var ingredient;
+	var count = 1;
+
+	while(count <= quantity) {
+
+		ingredient = prompt("Enter with the " + count + " ingredient");
+		while(checkDuplicate(ingredient)) {
+			ingredient = prompt(ingredient + " already added, please enter a different ingredient");
+		}
+		ingredients.push(ingredient);
+		count++;
+	}
+
+	console.log(ingredients);
+
+</script>
+
