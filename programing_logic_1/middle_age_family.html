@@ -1,0 +1,26 @@
+<meta charset="utf-8">
+
+<script>
+
+	function breakRow() {
+		printText("<br>");
+	}
+
+	function printText(text) {
+		document.write(text);
+	}
+
+	function printTextWithBreakRow(text) {
+		printText(text);
+		breakRow();
+	}
+
+	var numOfFamilyMembers = parseInt(prompt("How many members does your family have? "))
+	var totalAge = 0;
+	for(var i = 0; i < numOfFamilyMembers; i++) {
+		totalAge += parseInt(prompt("Enter with " + (i + 1) + " member age:"));
+	}
+	var middleAge = totalAge / numOfFamilyMembers;
+	printTextWithBreakRow("The middle age of your family is " + middleAge + ".")
+
+</script>

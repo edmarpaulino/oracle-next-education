@@ -21,17 +21,26 @@
 
 	var n = parseInt(prompt("Enter with the max number:"));
 	var random_num = sorting(n);
-	var userNum = parseInt(prompt("Enter with a number from 0 to " + n + ":"));
+	var userNum;
 
-	if (userNum == random_num) {
-		printTextWithBreakRow("Congratulations! You got the right number.");
-	} else {
-		if (userNum < random_num) {
-			printTextWithBreakRow("Try again, your number is less than the right number.");
-
+	for(var attempts = 3; attempts > 0; attempts--) {
+		userNum = parseInt(prompt("Enter with a number from 0 to " + n + ":"));
+		if(userNum == random_num) {
+			alert("Congratulations! You got the right number.");
+			break;
 		} else {
-			printTextWithBreakRow("Try again, your number is greater than the right number.");
+			if(attempts > 1) {
+				if (userNum < random_num) {
+					alert("Try again, your number is less than the right number.");
+		
+				} else {
+					alert("Try again, your number is greater than the right number.");
+				}
+			} else {
+				alert("You didn't get it right, the number was the " + random_num + ".")
+			}
 		}
 	}
+
 
 </script>

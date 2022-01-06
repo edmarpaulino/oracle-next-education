@@ -1,0 +1,38 @@
+<meta charset="utf-8">
+
+<script>
+
+	function breakRow() {
+		printText("<br>");
+	}
+
+	function printText(text) {
+		document.write(text);
+	}
+
+	function printTextWithBreakRow(text) {
+		printText(text);
+		breakRow();
+	}
+
+	var registerLogin = "alura";
+	var registerPassword = "alura321";
+
+	var informedLogin;
+	var informedPassword;
+
+	var maxAttempts = 3;
+
+	while(maxAttempts-- > 0)
+	{
+		informedLogin = prompt("Enter your login: ");
+		informedPassword = prompt("Enter your password: ");
+		if(informedLogin == registerLogin 
+			&& informedPassword == registerPassword){
+				alert("Welcome " + informedLogin);
+				break ;
+		} else {
+			alert("Login or password invalid! Remaining attempts: " + maxAttempts);
+		}
+	}
+</script>

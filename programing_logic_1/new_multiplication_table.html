@@ -1,0 +1,23 @@
+<meta charset="utf-8">
+
+<script>
+
+	function breakRow() {
+		printText("<br>");
+	}
+
+	function printText(text) {
+		document.write(text);
+	}
+
+	function printTextWithBreakRow(text) {
+		printText(text);
+		breakRow();
+	}
+
+	var n = parseInt(prompt("Which multiplication tables would you like to see?  (Enter with a number)"));
+
+	for (let i = 0; i <= 10; i++) {
+		printTextWithBreakRow(i + " * " + n + " = " + (i * n));
+	}
+</script>

@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+
+<script>
+
+	function breakRow() {
+		printText("<br>");
+	}
+
+	function printText(text) {
+		document.write(text);
+	}
+
+	function printTextWithBreakRow(text) {
+		printText(text);
+		breakRow();
+	}
+
+	function sorting(n) {
+		return Math.round(Math.random() * n);
+	}
+
+	var n = 2;
+
+	while (n <= 100) {
+		printTextWithBreakRow(n);
+		n += 2;
+	}
+	printTextWithBreakRow("End");
+
+</script>

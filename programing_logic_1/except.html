@@ -1,0 +1,31 @@
+<meta charset="utf-8">
+
+<script>
+
+	function breakRow() {
+		printText("<br>");
+	}
+
+	function printText(text) {
+		document.write(text);
+	}
+
+	function printTextWithBreakRow(text) {
+		printText(text);
+		breakRow();
+	}
+
+	function sorting(n) {
+		return Math.round(Math.random() * n);
+	}
+
+	var n = 30;
+
+	while (n <= 40) {
+		if (n != 33 && n != 37)
+			printTextWithBreakRow(n);
+		n++;
+	}
+	printTextWithBreakRow("End");
+
+</script>

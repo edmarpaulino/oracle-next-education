@@ -1,0 +1,25 @@
+<meta charset="utf-8">
+
+<script>
+
+	function breakRow() {
+		printText("<br>");
+	}
+
+	function printText(text) {
+		document.write(text);
+	}
+
+	function printTextWithBreakRow(text) {
+		printText(text);
+		breakRow();
+	}
+
+	for(var row = 0; row < 10; row++) {
+		for(var col = 0; col < 10; col++) {
+			printText("*");
+		}
+		breakRow();
+	}
+
+</script>
