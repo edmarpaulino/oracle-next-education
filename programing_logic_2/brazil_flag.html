@@ -1,0 +1,39 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+	function drawRectangle() {
+		brush.fillStyle = 'green';
+		brush.fillRect(0, 0, 600, 400);
+	}
+
+	function drawDiamond() {
+		brush.fillStyle = 'yellow';
+		brush.beginPath();
+		brush.moveTo(300, 50);
+		brush.lineTo(50, 200);
+		brush.lineTo(550, 200);
+		brush.fill();
+
+		brush.beginPath();
+		brush.moveTo(300, 350);
+		brush.lineTo(50, 200);
+		brush.lineTo(550, 200);
+		brush.fill();
+	}
+
+	function drawCircle() {
+		brush.fillStyle = 'darkblue';
+		brush.beginPath();
+		brush.arc(300, 200, 100, 0, 2 * 3.14);
+		brush.fill();
+	}
+
+	var canvas = document.querySelector('canvas');
+	var brush = canvas.getContext('2d');
+
+	drawRectangle();
+	drawDiamond();
+	drawCircle();
+
+</script>

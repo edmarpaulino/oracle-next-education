@@ -1,0 +1,39 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+	function drawItalyFlag() {
+		brush.fillStyle = 'green';
+		brush.fillRect(0, 0, 200, 400);
+
+		brush.fillStyle = 'lightgrey';
+		brush.fillRect(200, 0, 400, 400);
+	
+		brush.fillStyle = 'red';
+		brush.fillRect(400, 0, 600, 400);
+	}
+
+	function drawTriangle() {
+		brush.fillStyle = 'yellow';
+		brush.beginPath();
+		brush.moveTo(300, 200);
+		brush.lineTo(200, 400);
+		brush.lineTo(400, 400);
+		brush.fill();
+	}
+
+	function drawCircle() {
+		brush.fillStyle = 'blue';
+		brush.beginPath();
+		brush.arc(300, 200, 50, 0, 2 * 3.14);
+		brush.fill();
+	}
+
+	var canvas = document.querySelector('canvas');
+	var brush = canvas.getContext('2d');
+
+	drawItalyFlag();
+	drawTriangle();
+	drawCircle();
+
+</script>

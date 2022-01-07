@@ -1,0 +1,41 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+	function drawHead() {
+		brush.fillStyle = 'darkgreen';
+		brush.fillRect(125, 50, 350, 300);
+	}
+
+	function drawEyes() {
+		brush.fillStyle = 'black';
+		brush.fillRect(175, 100, 90, 90);
+
+		brush.fillStyle = 'black';
+		brush.fillRect(335, 100, 90, 90);
+	}
+
+	function drawNose() {
+		brush.fillStyle = 'black';
+		brush.fillRect(265, 190, 70, 100);
+	}
+
+	function drawMouth() {
+		brush.fillStyle = 'black';
+		brush.fillRect(225, 240, 40, 110);
+
+		brush.fillStyle = 'black';
+		brush.fillRect(335, 240, 40, 110);
+	}
+
+
+	var canvas = document.querySelector('canvas');
+	var brush = canvas.getContext('2d');
+	
+	drawHead();
+	drawEyes();
+	drawNose();
+	drawMouth();
+
+
+</script>
