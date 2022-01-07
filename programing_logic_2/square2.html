@@ -1,0 +1,26 @@
+<canvas width="1200" height="800"></canvas>
+
+<script>
+
+	function drawTriangle(xa, ya, xc, yc, color1, color2) {
+		brush.fillStyle = color1;
+		brush.beginPath();
+		brush.moveTo(xa, ya);
+		brush.lineTo(xa, yc);
+		brush.lineTo(xc, yc);
+		brush.fill();
+
+		brush.fillStyle = color2;
+		brush.beginPath();
+        brush.moveTo((((6 * xa) + xc) / 7), (((9 * ya) + (5 * yc) ) / 14));
+        brush.lineTo((((6 * xa) + xc) / 7), ((ya + (6 * yc)) / 7));
+        brush.lineTo((((5 * xa) + (9 * xc)) / 14), ((ya + (6 * yc)) / 7));
+		brush.fill();
+	}
+
+	var canvas = document.querySelector('canvas');
+	var brush = canvas.getContext('2d');
+
+	drawTriangle(50, 50, 700, 700, 'black', 'white');
+
+</script>

@@ -1,0 +1,31 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+	function drawText(text, x, y, color) {
+		brush.font = '20px Georgia';
+		brush.fillStyle = color;
+		brush.fillText(text, x, y);
+	}
+
+	function drawFraction(numerator, denominator) {
+		var size = 50;
+
+		brush.fillStyle = 'green';
+		for(var n = 1; n <= numerator; n++) {
+			brush.fillRect(n * size, 50, size, size);
+		}
+
+		brush.strokeStyle = 'black';
+		for(var d = 1; d <= denominator; d++) {
+			brush.strokeRect(d * size, 50, size, size);
+		}
+	}
+
+	var canvas = document.querySelector('canvas');
+	var brush = canvas.getContext('2d');
+
+	drawText("What is the fraction?", 50, 30, 'black');
+	drawFraction(3, 4);
+
+</script>

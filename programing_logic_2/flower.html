@@ -1,0 +1,32 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+	function fillCanvas(width, height, color) {
+		brush.fillStyle = color;
+		brush.fillRect(0, 0, width, height);
+	}
+
+	function drawCircle(x, y, radius, color) {
+		brush.fillStyle = color;
+		brush.beginPath();
+		brush.arc(x, y, radius, 0, 2 * 3.14);
+		brush.fill();
+	}
+
+	function drawFlower(x, y, radius) {
+		drawCircle(x, y, radius, 'red');
+		drawCircle(x, (y - (radius * 2)), radius, 'yellow');
+		drawCircle(x, (y + (radius * 2)), radius, 'blue');
+		drawCircle((x - (radius * 2)), y, radius, 'orange');
+		drawCircle((x + (radius * 2)), y, radius, 'black');
+	}
+
+	var canvas = document.querySelector('canvas');
+	var brush = canvas.getContext('2d');
+
+	fillCanvas(600, 400, 'lightgrey');
+	drawFlower(300, 200, 10);
+
+
+</script>
