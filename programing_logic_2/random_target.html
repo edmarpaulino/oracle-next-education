@@ -1,0 +1,78 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+	function fillCanvas(color) {
+		brush.fillStyle = color;
+		brush.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+	}
+
+	function clearCanvas() {
+		brush.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+	}
+
+	function drawCircle(x, y, radius, color) {
+		brush.fillStyle = color;
+		brush.beginPath();
+		brush.arc(x, y, radius, 0, 2 * Math.PI);
+		brush.fill();
+	}
+
+	function sortingTargetXPosition() {
+		var max = (CANVAS_WIDTH - bigRadius);
+		var randomX = Math.floor(Math.random() * max);
+
+		while (randomX < bigRadius || randomX > max) {
+			randomX = Math.floor(Math.random() * max);
+		}
+		return randomX;
+	}
+
+	function sortingTargetYPosition() {
+		var max = (CANVAS_HEIGHT - bigRadius);
+		var randomY = Math.floor(Math.random() * max);
+
+		while (randomY < bigRadius || randomY > max) {
+			randomY = Math.floor(Math.random() * max);
+		}
+		return randomY;
+	}
+
+	
+	function drawTarget() {
+		x = sortingTargetXPosition();
+		y = sortingTargetYPosition();
+		
+		clearCanvas();
+		drawCircle(x, y, bigRadius, 'red');
+		drawCircle(x, y, middleRadius, 'white');
+		drawCircle(x, y, littleRadius, 'red');
+	}
+	
+	function shoot(event) {
+		var shootX = event.pageX - canvas.offsetLeft;
+		var shootY = event.pageY - canvas.offsetTop;
+		
+		if((shootX > (x - littleRadius))
+		&& (shootX < (x + littleRadius))
+		&& (shootY > (y - littleRadius))
+		&& (shootY < (y + littleRadius))) {
+			alert("You hit the target");
+		}
+	}
+	
+	const CANVAS_WIDTH = 600;
+	const CANVAS_HEIGHT = 400;
+	var x = (CANVAS_WIDTH / 2);
+	var y = (CANVAS_HEIGHT / 2);
+	var canvas = document.querySelector('canvas');
+	var brush = canvas.getContext('2d');
+	var littleRadius = 10;
+	var middleRadius = 20;
+	var bigRadius = 30;
+
+	fillCanvas('white');
+	setInterval(drawTarget, 1000);
+	canvas.onclick = shoot;
+
+</script>
