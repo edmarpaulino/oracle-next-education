@@ -1,0 +1,41 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+	function fillCanvas(width, height, color) {
+		brush.fillStyle = color;
+		brush.fillRect(0, 0, width, height);
+	}
+
+	function drawCircle(x , y , radius, color) {
+		brush.fillStyle = color;
+		brush.beginPath();
+		brush.arc(x, y, radius, 0, 2 * Math.PI);
+		brush.fill();
+	}
+
+	function clearCanvas() {
+		brush.clearRect(0, 0, 600, 400);
+	}
+
+	var growthFactor = 1;
+	var radius = 19;
+
+	function attCanvas() {
+		clearCanvas();
+		drawCircle(300, 200, radius, 'red');
+		if (radius > 30) {
+			growthFactor = -1;
+		} else if (radius < 20) {
+			growthFactor = 1;
+		}
+		radius += growthFactor;
+	}
+
+	var canvas = document.querySelector('canvas');
+	var brush = canvas.getContext('2d');
+
+	fillCanvas(600, 400, 'white');
+	setInterval(attCanvas, 20);
+
+</script>
