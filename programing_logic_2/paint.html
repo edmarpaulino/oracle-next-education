@@ -1,0 +1,58 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+	function putCircleOnTheCanvas(event) {
+		if (draw) {
+			var x = event.pageX - canvas.offsetLeft;
+			var y = event.pageY - canvas.offsetTop;
+
+
+			brush.fillStyle = colors[currentColor];
+			brush.beginPath();
+			if(event.shiftKey && event.altKey) {
+				alert('Press one key at a time!')
+			} else if(event.shiftKey && (radius + 10) <= 40) {
+				radius += 10;
+			} else if(event.altKey && (radius - 5) >= 10) {
+				radius -= 5;
+			}
+			brush.arc(x, y, radius, 0, 2 * 3.14);
+			brush.fill();
+			console.log(x + ',' + y);
+		}
+	}
+
+	function changeColor() {
+		currentColor = ((currentColor + 1) % 3);
+		return false;
+	}
+
+	function activeDraw() {
+		draw = true;
+	}
+
+	function disableDraw() {
+		draw = false;
+	}
+
+	var canvas = document.querySelector('canvas');
+	var brush = canvas.getContext('2d');
+	var colors = ['blue', 'red', 'green'];
+	var currentColor = 0;
+	var radius = 10;
+	var	draw = false;
+
+	brush.fillStyle = 'grey';
+	brush.fillRect(0, 0, 600, 400);
+	canvas.onmousemove = putCircleOnTheCanvas;
+	// anonymous functions
+	canvas.onmousedown = function() {
+		draw = true;
+	}
+	canvas.onmouseup = function() {
+		draw = false;
+	}
+	canvas.oncontextmenu = changeColor;
+
+</script>

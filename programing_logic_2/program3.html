@@ -1,0 +1,21 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+	function putCircleOnCanvas(event) {
+		var x = event.pageX - canvas.offsetLeft;
+		var y = event.pageY - canvas.offsetTop;
+		brush.fillStyle = 'red';
+		brush.beginPath();
+		brush.arc(x, y, 10, 0, 2 * 3.14);
+		brush.fill();
+		console.log(x + ',' + y);
+	}
+	var canvas = document.querySelector('canvas');
+	var brush = canvas.getContext('2d');
+
+	brush.fillStyle = 'grey';
+	brush.fillRect(0, 0, 600, 400);
+	canvas.onclick = putCircleOnCanvas;
+
+</script>
