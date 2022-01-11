@@ -19,7 +19,15 @@ botaoAdicionar.addEventListener("click", function (event) {
 	// pegando o valor de cada campo do form através da propriedade name do form
 	// com objeto
 	var paciente = obtemPacienteDoFormulario(form);
-	console.log(paciente);
+	
+	var erros = validaPaciente(paciente);
+
+	if (erros.length > 0) {
+
+		exibeMensagensDeErro(erros);
+		return ;
+
+	}
 
 	// pegando a tabela dos pacientes
 	var tabela = document.querySelector("#tabela-pacientes");
@@ -29,6 +37,12 @@ botaoAdicionar.addEventListener("click", function (event) {
 
 	// limpa o formulário
 	form.reset();
+
+	var ul = document.querySelector("#mensagens-erro");
+
+	// para limpar as mensagens anteriores da ul
+	ul.innerHTML = "";
+
 
 });
 
@@ -85,4 +99,32 @@ function montaTd(dado, classe) {
 
 	return td;
 
+}
+
+function validaPaciente(paciente) {
+
+	var erros = [];
+
+	if (paciente.nome.length == 0) erros.push("O nome não foi informado");
+	if (!validaPeso(paciente.peso)) erros.push("Peso é inválido");
+	if (!validaAltura(paciente.altura)) erros.push("Altura é inválida");
+	if (paciente.gordura.length == 0) erros.push("A gordura não foi informada");
+
+	return erros;
+
+}
+
+function exibeMensagensDeErro(erros) {
+
+	var ul = document.querySelector("#mensagens-erro");
+
+	// para limpar as mensagens anteriores da ul
+	ul.innerHTML = "";
+
+	// para cada elemento do array faça
+	erros.forEach(function(erro) {
+		var li = document.createElement("li");
+		li.textContent = erro;
+		ul.appendChild(li);
+	});
 }
