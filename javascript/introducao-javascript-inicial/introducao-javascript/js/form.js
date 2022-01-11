@@ -29,11 +29,7 @@ botaoAdicionar.addEventListener("click", function (event) {
 
 	}
 
-	// pegando a tabela dos pacientes
-	var tabela = document.querySelector("#tabela-pacientes");
-
-	// adicionando o tr como filho da tabela
-	tabela.appendChild(montaTr(paciente));
+	adicionaPacienteNaTabela(paciente);
 
 	// limpa o formulário
 	form.reset();
@@ -45,6 +41,14 @@ botaoAdicionar.addEventListener("click", function (event) {
 
 
 });
+
+function adicionaPacienteNaTabela(paciente) {
+	// pegando a tabela dos pacientes
+	var tabela = document.querySelector("#tabela-pacientes");
+
+	// adicionando o tr como filho da tabela
+	tabela.appendChild(montaTr(paciente));
+}
 
 // Utilizamos objetos no Javascript como na maioria das linguagens de 
 // programação orientadas, aonde os objetos podemos compará-los com objetos
